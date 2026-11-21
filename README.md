@@ -39,8 +39,8 @@
 ```bash
 git clone https://github.com/Xananr/magnet-picker.git
 cd magnet-picker
-./build-app.sh          # 编译 release + 组 bundle + 生成图标 + ad-hoc 签名
-open build/MagnetPicker.app
+./build-app.sh --install # 编译 release + 组 bundle + 生成图标 + ad-hoc 签名 + 装进 /Applications
+# 从「应用程序」里打开「磁力筛选器」，或直接 open /Applications/磁力筛选器.app
 ```
 
 只需要 Xcode 命令行工具（`xcode-select --install`），没有第三方依赖。

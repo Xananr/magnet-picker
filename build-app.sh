@@ -36,4 +36,14 @@ codesign --verify --deep --strict "$BUNDLE" && echo "签名校验通过"
 
 echo "==> 体积"
 du -sh "$BUNDLE"
+
+if [ "${1:-}" = "--install" ]; then
+    echo "==> 安装到 /Applications"
+    DEST="/Applications/磁力筛选器.app"
+    rm -rf "$DEST"
+    cp -R "$BUNDLE" "$DEST"
+    xattr -dr com.apple.quarantine "$DEST" 2>/dev/null || true
+    echo "已安装：$DEST"
+fi
+
 echo "完成：$(pwd)/$BUNDLE"
